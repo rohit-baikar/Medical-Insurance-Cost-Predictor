@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Insurance Cost Predictor</title>
+  <style>
+    *{
+      margin: 0%;
+      padding: 0%;
+      box-sizing: border-box;
+    }
+    body{
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-attachment:fixed;
+      background-image: url({{url_for('static', filename='image.jpg')}});
+    }
+    center{
+      margin-left: 100px;
+    }
+    h1{
+      color:navy;
+      margin-top: 5px;
+      font-size: 28px;
+      width: 90%;
+      font-size: 2rem;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      padding: 20px;
+      border-bottom: 2px solid #333;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+    }
+    h4{
+      font-size: 13px;
+            color: #333;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-top: 10px;
+            
+    }
+    .form-container {
+      background-color: rgba(255, 255, 255, 0.668);
+      border-radius: 8px;
+      margin-top: 20px;
+      padding: 20px;
+      width: 70%;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);  
+    }
+    label {
+      display: block;
+      margin-bottom: 4px;
+      color: #555;
+      font-weight: bold;
+    }
+    input[type="number"] {
+      width: 70%;
+      padding: 8px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      box-sizing: border-box;
+      border-color: blue;
+    }
+    .radio-group label {
+    display: block;
+    margin-bottom: 5px;
+    color: #333;
+    font-size: 1rem;
+  }
+  .button {
+    width: 80%;
+    padding: 12px;
+    background-color: #007bff;
+    border: none;
+    border-radius: 4px;
+    color: #fff;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+  .button:hover {
+    background-color: #0056b3;
+  }
+  input[type="radio"] {
+    transform: scale(1.5);
+    margin-right: 15px;
+    margin-left: 15px;
+    vertical-align: middle; 
+    cursor: pointer;
+
+  }
+  @media (max-width: 768px) {
+  center {
+    margin-left: 0;
+    margin-right: 0;
+  }
+
+  .form-container {
+    padding: 15px;
+    width: 100%;
+  }
+
+  h1 {
+    font-size: 1.5rem;
+  }
+
+  h4 {
+    font-size: 0.875rem;
+  }
+
+  input[type="number"] {
+    width: 100%;
+    font-size: 0.875rem;
+  }
+
+  .radio-group {
+    font-size: 0.875rem;
+  }
+
+  .button {
+    font-size: 0.875rem;
+  }
+}
+
+/* Extra Small Devices (Phones, 480px and down) */
+@media (max-width: 480px) {
+  h1 {
+    font-size: 1.2rem;
+  }
+
+  h4 {
+    font-size: 0.75rem;
+  }
+
+  .button {
+    font-size: 0.75rem;
+  }
+}
+  </style>
+</head>
+<body>
+<center>
+  <div class="form-container">
+  <h1>Medical Insurance Cost Predictor</h1>
+  <h4>This app predicts the cost of medical insurance, Try filling the details bellow</h4>
+  <form action="" method="post">
+    <label>Enter Age</label>
+    <input type="number" name="age" id="age" placeholder="Enter age" required minlength="1" maxlength="120"/>
+    <br><br>
+
+    <label>Enter Body Mass Index Number</label>
+    <input type="number" step="any" name="bmi" id="bmi" placeholder="Enter Body Mass Index Number" required />
+    <br><br>
+
+    <label>Enter Number Of Childrens</label>
+    <input type="number" step="any" name="children" id="children" placeholder="Enter Number Of Childrens" required maxlength="5">
+    <br><br>
+
+    <label>Select Sex</label>
+    <div class="radio-group">
+      <input type="radio" name="sex" id="sex" value="0" checked="True" />Female
+      <input type="radio" name="sex" id="sex" value="1" />Male
+    </div>
+    <br><br>
+
+    <label>Select Smoker</label>
+    <div class="radio-group">
+      <input type="radio" name="smoker" id="smoker" value="0" checked="True" />No
+      <input type="radio" name="smoker" id="smoker" value="1" />Yes
+    </div>
+    <br><br>
+    <input type="submit" class="button" value="Predict Cost">   
+  </form>
+  <br>
+  <h2>{{ msg }}</h2>
+</center>
+</div>
+</body>
+</html>
